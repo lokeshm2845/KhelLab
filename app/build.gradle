@@ -1,0 +1,77 @@
+plugins {
+    id 'com.android.application'
+}
+
+// Firebase (Milestone 5) is optional: the google-services plugin is applied only after you
+// download google-services.json from the Firebase console into this app/ folder.
+// Without it the app still builds and runs; the Sync button just explains how to set it up.
+if (file('google-services.json').exists()) {
+    apply plugin: 'com.google.gms.google-services'
+}
+
+// Read the optional Google Maps key (Milestone 6) from local.properties
+def localProps = new Properties()
+def localPropsFile = rootProject.file('local.properties')
+if (localPropsFile.exists()) {
+    localPropsFile.withInputStream { localProps.load(it) }
+}
+def mapsApiKey = localProps.getProperty('MAPS_API_KEY', '')
+
+android {
+    namespace = 'com.khellab.app'
+    compileSdk = 37
+
+    defaultConfig {
+        applicationId = 'com.khellab.app'
+        minSdk = 24
+        targetSdk = 37
+        versionCode = 1
+        versionName = '1.0'
+
+        manifestPlaceholders = [MAPS_API_KEY: mapsApiKey]
+        buildConfigField 'String', 'MAPS_API_KEY', "\"${mapsApiKey}\""
+    }
+
+    buildFeatures {
+        buildConfig = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled = false
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
+    }
+}
+
+dependencies {
+    // --- basic Android UI libraries (from the Android Studio wizard) ---
+    implementation 'androidx.appcompat:appcompat:1.8.0'
+    implementation 'com.google.android.material:material:1.14.0'
+    implementation 'androidx.activity:activity:1.13.0'
+
+    // CameraX
+    def cameraxVersion = "1.6.2"
+    implementation "androidx.camera:camera-core:$cameraxVersion"
+    implementation "androidx.camera:camera-camera2:$cameraxVersion"
+    implementation "androidx.camera:camera-lifecycle:$cameraxVersion"
+    implementation "androidx.camera:camera-view:$cameraxVersion"
+
+    // ML Kit Pose Detection (on-device)
+    implementation 'com.google.mlkit:pose-detection:18.0.0-beta5'
+
+    // (Room was removed: results are stored with a plain SQLiteOpenHelper -- see data/DBHelper.java)
+
+    // Firebase -- cohort sync (Milestone 5)
+    implementation platform('com.google.firebase:firebase-bom:34.0.0')
+    implementation 'com.google.firebase:firebase-firestore'
+    implementation 'com.google.firebase:firebase-auth'
+
+    // Maps + Location -- venue tagging (Milestone 6)
+    implementation 'com.google.android.gms:play-services-maps:19.0.0'
+    implementation 'com.google.android.gms:play-services-location:21.3.0'
+}

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "144653504214",
+    "project_id": "khellab",
+    "storage_bucket": "khellab.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:144653504214:android:c811f38b81398cce884377",
+        "android_client_info": {
+          "package_name": "com.khellab.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCftzTQX1ffmkNgA4RAtLJGqFxqquQTVAY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

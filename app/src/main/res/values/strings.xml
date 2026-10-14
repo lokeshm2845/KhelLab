@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">KhelLab</string>
+    <string name="tagline">Phone-based athlete fitness testing</string>
+    <string name="disclaimer">All results are coaching aids for talent scouting. They are not medical or injury assessments.</string>
+</resources>

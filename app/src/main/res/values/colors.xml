@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="brand_primary">#1B5E20</color>
+    <color name="brand_primary_dark">#0D3B12</color>
+    <color name="brand_accent">#FF8F00</color>
+    <color name="screen_bg">#F3F6F3</color>
+    <color name="text_primary">#1C1C1C</color>
+    <color name="text_secondary">#5F6B60</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="panel_dark">#CC000000</color>
+
+    <!-- Benchmark rating colours -->
+    <color name="rating_excellent">#2E7D32</color>
+    <color name="rating_good">#558B2F</color>
+    <color name="rating_average">#F9A825</color>
+    <color name="rating_needs_work">#C62828</color>
+
+    <!-- Reaction test panel colours -->
+    <color name="reaction_idle">#455A64</color>
+    <color name="reaction_wait">#C62828</color>
+    <color name="reaction_go">#2E7D32</color>
+</resources>

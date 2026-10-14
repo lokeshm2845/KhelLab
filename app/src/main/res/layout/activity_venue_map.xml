@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/venueRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/brand_primary"
+    android:orientation="vertical">
+
+    <TextView
+        style="@style/KhelLab.Header"
+        android:text="Test Venues" />
+
+    <!-- The Google Map is added into this container from Java (only if an API key is set) -->
+    <FrameLayout
+        android:id="@+id/mapContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="#DDE5DD">
+
+        <TextView
+            android:id="@+id/txtNoMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:padding="24dp"
+            android:text="In-app map needs a Google Maps API key (see local.properties).\nTap any venue below to open it in the Google Maps app instead."
+            android:textColor="@color/text_secondary"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/screen_bg"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/txtVenueSummary"
+            style="@style/KhelLab.SectionTitle"
+            android:text="Tagged venues" />
+
+        <ListView
+            android:id="@+id/listVenues"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+</LinearLayout>
